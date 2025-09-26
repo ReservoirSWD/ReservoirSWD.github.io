@@ -127,6 +127,26 @@ body {
   margin: 0;
 }
 
+/* Normalize all videos to avoid jagged height differences */
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Force consistent square thumbnails in the results carousel */
+.results-carousel .item {
+  position: relative;
+}
+
+.results-carousel .item video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  background: #000;
+}
+
 
 .interpolation-panel {
   background: #f5f5f5;
@@ -154,4 +174,26 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
+}
+
+/* Square, center-cropped images */
+.square-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Guidance carousel visuals */
+.guidance-carousel {
+  overflow: hidden;
+}
+
+.guidance-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 10px;
 }

@@ -1,0 +1,155 @@
+/* --------- Design tokens --------- */
+:root {
+    --bg: #000000;
+    --bg-elev: #0b0b0b;           /* slightly lifted surfaces */
+    --card: #0d0d0d;
+    --border: #515151;
+    --text: #e6e6e6;              /* main text */
+    --muted: #b3b3b3;             /* secondary text */
+    --link: #7aa2ff;              /* accessible blue on black */
+    --link-hover: #aecdff;
+    --accent: #ffd166;            /* highlight color */
+    --code-bg: #0c0c0c;
+    --code-border: #1a1a1a;
+    --kbd-bg: #111;
+    --kbd-border: #333;
+    --table-stripe: #0a0a0a;
+    --focus: #3b82f6;
+  }
+  
+  /* --------- Typography --------- */
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .title, .subtitle,
+  h1, h2, h3, h4, h5, h6,
+  .navbar-item, .button, .menu-label, .tabs a {
+    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  }
+
+  /* High-contrast headings on dark */
+  h1, h2, h3, h4, h5, h6,
+  .title { color: var(--text); }
+  .subtitle { color: var(--muted); }
+  
+  /* Balance serif tracking a bit for readability on black */
+  p, li, blockquote { letter-spacing: .005em; }
+  
+  /* --------- Global elements --------- */
+  a { color: var(--link); }
+  a:hover, a:focus { color: var(--link-hover); }
+  
+  hr { background-color: var(--border); height: 1px; }
+  
+  .content, .section, .hero, .footer {
+    background: transparent;
+    color: var(--text);
+  }
+  
+  .section { padding-top: 3rem; padding-bottom: 3rem; }
+  
+  /* --------- Navbar / Hero --------- */
+  .navbar, .hero {
+    background: var(--bg);
+    box-shadow: none;
+    border: none;
+  }
+  .navbar-item, .navbar-link { color: var(--text); }
+  .navbar-item:hover, .navbar-link:hover { background: var(--bg-elev); color: var(--text); }
+  
+  /* --------- Surfaces (cards, boxes, tiles) --------- */
+  .card, .box, .message, .modal-card,
+  .notification, .dropdown-content, .menu-list a {
+    background: var(--card);
+    color: var(--text);
+    border: none;
+    box-shadow: none;
+  }
+  .card .title, .box .title, .content .title { color: var(--text); }
+  .content .subtitle { color: var(--muted); }
+  
+  /* --------- Tags / Labels --------- */
+  .tag { background: #121212; color: var(--text); border: 1px solid var(--border); }
+  
+  /* --------- Buttons --------- */
+  .button {
+    background: #121212;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .button:hover { background: #151515; }
+  .button.is-primary {
+    background: var(--accent); border-color: var(--accent); color: #111;
+  }
+  .button.is-link { background: var(--link); border-color: var(--link); color: #0b0b0b; }
+  .button.is-light { background: #181818; color: var(--text); border-color: var(--border); }
+  
+  /* Focus ring (keyboard) */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  
+  /* --------- Forms --------- */
+  .input, .textarea, .select select, .file-cta, .file-name {
+    background: #0e0e0e;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .input::placeholder, .textarea::placeholder { color: #7a7a7a; }
+  .checkbox:hover, .radio:hover { filter: brightness(1.1); }
+  
+  /* --------- Tables --------- */
+  .table {
+    background: transparent;
+    color: var(--text);
+  }
+  .table td, .table th { border-color: var(--border) !important; }
+  .table.is-striped tbody tr:not(.is-selected):nth-child(even) { background: var(--table-stripe); }
+  
+  /* --------- Code / Pre / Kbd --------- */
+  pre, code {
+    background: var(--code-bg) !important;
+    color: #eaeaea !important;
+    border: 1px solid var(--code-border);
+  }
+  pre code { border: none; background: transparent !important; }
+  .kbd, kbd {
+    background: var(--kbd-bg);
+    border: 1px solid var(--code-border);
+    padding: .1rem .3rem;
+    border-radius: 3px;
+    color: var(--text);
+  }
+  
+  /* --------- Figures / Captions --------- */
+  figure, .image, .media { background: transparent; }
+  figcaption, .caption, .is-size-7 { color: var(--muted) !important; }
+  
+  /* --------- Lists / Marked text --------- */
+  .content ul > li::marker { color: var(--muted); }
+  mark { background: #222; color: var(--text); }
+  
+  /* --------- Helpers for common Nerfies blocks --------- */
+  .hero .title, .hero .subtitle { text-shadow: none; }
+  .columns, .column { background: transparent; }
+  .footer { border-top: 0px solid var(--border); }
+  
+  /* --------- Optional: respect user pref if they like light mode --------- */
+  /* Remove this block if you want to force dark for everyone */
+  @media (prefers-color-scheme: light) {
+    /* no-op: we intentionally force dark; keep block empty or delete it */
+  }
+
+  .guidance-carousel .item {
+    border: 1px solid var(--border);
+  }
+  .results-carousel .item{
+    border: 1px solid var(--border);
+  }

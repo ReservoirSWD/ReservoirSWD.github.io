@@ -1,12 +1,12 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
 var INTERP_BASE = "./static/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
+var NUM_INTERP_FRAMES = 200;
 
 var interp_images = [];
 function preloadInterpolationImages() {
   for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
+    var path = INTERP_BASE + '/' + String(i).padStart(5, '0') + '.jpg';
     interp_images[i] = new Image();
     interp_images[i].src = path;
   }
@@ -36,10 +36,12 @@ $(document).ready(function() {
 			infinite: true,
 			autoplay: false,
 			autoplaySpeed: 3000,
+      navigation: true,
+      pagination: true,
     }
 
 		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    var carousels = bulmaCarousel.attach('.results-carousel', options);
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
@@ -47,6 +49,25 @@ $(document).ready(function() {
     	carousels[i].on('before:show', state => {
     		console.log(state);
     	});
+    }
+
+    // Initialize the guidance carousel with one slide visible
+    var guidanceCarousel = bulmaCarousel.attach('#guidance-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+      autoplaySpeed: 4500,
+      navigation: true,
+      pagination: true,
+    });
+    
+    // Force refresh to ensure proper display
+    if (guidanceCarousel && guidanceCarousel.length > 0) {
+      setTimeout(() => {
+        guidanceCarousel[0].refresh();
+      }, 100);
     }
 
     // Access to bulmaCarousel instance of an element
