@@ -1,14 +1,14 @@
-# Nerfies
+# ReSWD
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [ReSWD website](https://ReservoirSWD.github.io).
 
-If you find Nerfies useful for your work please cite:
+If you find ReSWD useful for your work please cite:
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@article{boss2025reswd,
+  title={ReSWD: ReSTIR'd, not shaken. Combining Reservoir Sampling and Sliced Wasserstein Distance for Variance Reduction.},
+  author={Boss, Mark and Engelhardt, Andreas and Donné, Simon and Jampani, Varun},
+  journal={arXiv preprint},
+  year={2025}
 }
 ```
 
